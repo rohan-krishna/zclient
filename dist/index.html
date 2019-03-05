@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TK Scanner Client</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="/nucleo.02af7ed0.css" rel="stylesheet">
+    <link href="/font-awesome.min.8870207e.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link type="text/css" href="/argon.min.e33a7fad.css" rel="stylesheet">
+
+<script src="/nucleo.02af7ed0.js"></script><script src="/font-awesome.min.8870207e.js"></script><script src="/argon.min.e33a7fad.js"></script></head>
+<body>
+    <div class="container">
+        <div class="mt-3">
+            <h2 class="title">Welcome to TK Scanner</h2>
+            <hr>
+
+            <!-- <button class="btn btn-success">Get Auth Token</button> -->
+            <!-- <button class="btn btn-info tcp-ping">Test TCP Ping</button> -->
+
+            <div class="form-group">
+                <label for="">Settings Variable: </label>
+                <textarea name="" id="" cols="30" rows="10" class="form-control settings-display"></textarea>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Please Enter Necessary Details:
+                </div>
+                <div class="card-body">
+                    <form id="settingsForm">
+                        <div class="form-group">
+                            <label for="">Zabbix Server IP Address/Host: </label>
+                            <input type="text" class="form-control" placeholder="Enter Zabbix Server IP Address/Host name" name="ip_host">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zabbix Username: </label>
+                            <input type="text" class="form-control" placeholder="Enter Zabbix Username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="Zabbix Password">Zabbix Password: </label>
+                            <input type="password" class="form-control" name="password" placeholder="Zabbix Server Password">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="">Confirm Password: </label>
+                            <input type="password" class="form-control" name="confirmed_password" placeholder="Please confirm Zabbix server password">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="">Beginning IP Address to scan: ( Enter From IP ):</label>
+                            <input type="text" placeholder="Ex: 192.168.0.1" name="from_ip" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ending IP Address to scan: ( Enter To IP ):</label>
+                            <input type="text" placeholder="Ex: 192.168.0.255" name="to_ip" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zabbix Host Group ID: </label>
+                            <input type="text" placeholder="Enter Host Group ID" name="host_group_ID" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Zabbix Template ID: </label>
+                            <input type="text" placeholder="Enter Zabbix Template ID" name="template_ID" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success save-btn" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-3 py-3"></footer>
+    <!-- Core -->
+    <script src="/jquery.min.22a215d7.js"></script>
+    <script src="/popper.min.0d372d72.js"></script>
+    <script src="/bootstrap.min.b2611295.js"></script>
+
+    <!-- Theme JS -->
+    <script src="/argon.min.fa1634b1.js"></script>
+    <script src="/process_form.970bd638.js"></script>
+</body>
+</html>

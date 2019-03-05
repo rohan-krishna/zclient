@@ -19,13 +19,13 @@ const Session = {
         return axios({
             method: 'post',
             headers: { 'Content-Type' : "application/json-rpc" },
-            url: "http://192.168.31.93/zabbix/api_jsonrpc.php",
+            url: `http://${process.argv[2]}/zabbix/api_jsonrpc.php`,
             data: {
                 "jsonrpc" : "2.0",
                 "method" : "user.login",
                 "params" : {
-                    "user" : "Admin",
-                    "password" : "zabbix"
+                    "user" : `${process.argv[3]}`,
+                    "password" : `${process.argv[4]}`
                 },
                 "id": 1,
                 "auth": null,
@@ -33,12 +33,12 @@ const Session = {
         })
     },
 
-    addHost(authToken, hostname, groupID, ip_address, templateID) {
-        const url = "http://192.168.31.93/zabbix/api_jsonrpc.php";
+    addHost(authToken, hostname, ip_address) {
+        const url = `http://${process.argv[2]}/zabbix/api_jsonrpc.php`;
         // hostname = hostname == null? ip_address: hostname;
         // let ip_address = "";
-        // let groupID = 0;
-        // let templateID = 0;
+        let groupID = process.argv[5];
+        let templateID = process.argv[6];
 
         axios.post(url, {
             "auth" : authToken,
@@ -73,9 +73,9 @@ const Session = {
 }
 
 Session.login().then(res => {
-    hosts.forEach(host => {
-        Session.addHost(res.data.result, "NA", 5, host.params.interfaces[0].ip, 10186)
+    hosts.forEach((host,index) => {
+        Session.addHost(res.data.result, host.params.interfaces[0].ip, host.params.interfaces[0].ip)
     });
-});
+}).catch(err => console.log(err));
 
 // console.log(hosts.length);

@@ -2,7 +2,7 @@ const evilscan = require('evilscan');
 
 // Set IP range and port list here
 let options = {
-    target  :'192.168.31.1-192.168.31.254',
+    target  :`${process.argv[5]}-${process.argv[6]}`,
     port    :'80, 443',
     status  : 'RO', // Timeout, Refused, Open, Unreachable
     timeout : 3000,
@@ -43,9 +43,9 @@ var formatHostReq = function (hostData, authToken, grpId, tmplId) {
     return retval;
 }
 
-if (process.argv.length < 5) {
-    console.log("3 arguments are required");
-    console.log("usage:\n  > node tkScan.js <authToken> <host group Id> <host template Id>\n\n");
+if (process.argv.length < 7) {
+    console.log("5 arguments are required");
+    console.log("usage:\n  > node tkScan.js <authToken> <host group Id> <host template Id> <from_ip> <to_ip>\n\n");
     process.exit();
 }
 
